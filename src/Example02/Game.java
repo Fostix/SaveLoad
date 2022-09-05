@@ -20,8 +20,8 @@ public class Game {
         else
             flag = true;
         int min = 1;
-        int take;
-        int botTake;
+        int take; // Need create function which check what user write if write save to save,
+        int botTake; // if restore to need show save information.
         //#endregion
         while (candies > 0) {
             if (flag) {
