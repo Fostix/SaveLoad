@@ -1,4 +1,4 @@
-package Example00.UI;
+package Game.UI;
 
 import java.util.Scanner;
 
@@ -8,8 +8,8 @@ public class Button {
         Scanner scanner = new Scanner(System.in);
         while (true)
             try {
-                System.out.println("Enter 'q' for on game");
-                enter = scanner.next();
+                System.out.print("Enter 'q' for on game: ");
+                enter = "q"; //scanner.next(); then delete
                 if (enter.equals("q")) {
                     Menu menu = new Menu();
                     menu.menu();
