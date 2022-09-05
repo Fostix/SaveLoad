@@ -30,7 +30,8 @@ public class Game {
     }
 
     public int hardBot(int candies, int max, int min) {
-        return candies % (max + min);
+        int botTake = candies % (max + min);
+        return min < botTake ? botTake : 1;
     }
 
     public int personTake(int candies, int max, int min, Scanner scanner) {
