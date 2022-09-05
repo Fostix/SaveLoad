@@ -1,8 +1,8 @@
-package Examples01;
+package Example02;
 
 public class Client {
     public static void main(String[] args) {
-        UI ui = new UI();
-        ui.buttons();
+        Game game = new Game();
+        game.game();
     }
 }
