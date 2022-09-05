@@ -12,21 +12,35 @@ public class Game {
         System.out.printf("\nEnter max candies can take one person: ");
         int max = 6;// scanner.nextInt();
         System.out.println();
+        System.out.printf("Who first take candies you or bot\nEnter bot if bot first take or I if you first take: ");
+        String whoFirst = scanner.next();
+        boolean flag;
+        if (whoFirst.equals("bot"))
+            flag = false;
+        else
+            flag = true;
         int min = 1;
         int take;
         int botTake;
         //#endregion
         while (candies > 0) {
-            System.out.print("How many candies do you take: ");
-
-            take = personTake(candies, max, min, scanner);
-            candies -= take;
-            //take = scanner.nextInt();
-
-            botTake = hardBot(candies, max, min);
-            candies -= botTake;
-            System.out.printf("Bot take: %d left: %d candies\n", botTake, candies);
+            if (flag) {
+                System.out.print("How many candies do you take: ");
+                take = personTake(candies, max, min, scanner);
+                candies -= take;
+                flag = false;
+            }
+            else {
+                botTake = hardBot(candies, max, min);
+                candies -= botTake;
+                System.out.printf("Bot take: %d left: %d candies\n", botTake, candies);
+                flag = true;
+            }
         }
+        if (!flag)
+            System.out.println("You win successful!!!");
+        else
+            System.out.println("You lose : (");
     }
 
     public int hardBot(int candies, int max, int min) {
@@ -41,7 +55,7 @@ public class Game {
             max = candies;
         do {
             if (flag)
-                System.out.printf("You can't take more than: %d\nAnd can't take less than: %d\nTry again take: \n", max, min);
+                System.out.printf("You can't take more than: %d\nAnd can't take less than: %d\nTry again take: ", max, min);
             take = scanner.nextInt();
             flag = true;
         } while (take > max || take < min);
