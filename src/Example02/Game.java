@@ -8,25 +8,24 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         //#region setting game
         System.out.print("Enter how much be candies: ");
-        int candies = scanner.nextInt();
+        int candies =  27; //scanner.nextInt();
         System.out.printf("\nEnter max candies can take one person: ");
-        int max = scanner.nextInt();
+        int max = 6;// scanner.nextInt();
         System.out.println();
         int min = 1;
         int take;
         int botTake;
         //#endregion
         while (candies > 0) {
-            System.out.println("How many candies do you take?: ");
+            System.out.print("How many candies do you take: ");
 
             take = personTake(candies, max, min, scanner);
             candies -= take;
             //take = scanner.nextInt();
-            candies -= take;
 
             botTake = hardBot(candies, max, min);
             candies -= botTake;
-            System.out.printf("Bot take: %d left: %d candies", botTake, candies);
+            System.out.printf("Bot take: %d left: %d candies\n", botTake, candies);
         }
     }
 
@@ -36,9 +35,15 @@ public class Game {
 
     public int personTake(int candies, int max, int min, Scanner scanner) {
         int take;
+        boolean flag = false;
+        if (candies < max)
+            max = candies;
         do {
+            if (flag)
+                System.out.printf("You can't take more than: %d\nAnd can't take less than: %d\nTry again take: \n", max, min);
             take = scanner.nextInt();
-        } while (take >= max || take >= candies || take <= min);
+            flag = true;
+        } while (take > max || take < min);
             return take;
     }
 }
