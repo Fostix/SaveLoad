@@ -3,6 +3,7 @@ package Game.Core.MVP;
 public class Presenter {
     private Model model;
     private View view;
+    private boolean whoGoes;
 
     public Presenter(View view) {
         this.model = new Model();
@@ -20,8 +21,8 @@ public class Presenter {
         int maxCanTake = 6; // getNumber();
         view.whoGoesFirst();
         String whoFirst = "i"; // view.enterInConsole(); For faster check!
-        boolean whoGoesFirst = whoGoesFirst(whoFirst.toLowerCase());
-        model.setSettings(totalCandies, maxCanTake, whoGoesFirst);
+        this.whoGoes = whoGoesFirst(whoFirst.toLowerCase());
+        model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
 
     /** Для ввода и проверки является ли введенное значение числом*/
@@ -46,11 +47,24 @@ public class Presenter {
             return false;
     }
 
-    public void playing() { // need presenter
-        model.setLogic();
-        while (model.checkCandies()) {
-            view.sayTakeCandies();
-            model.game();
-        }
+    public boolean playing() { // Need presenter.
+        model.setLogic(); // For send settings.
+        view.sayTakeCandies(); // Only write.
+        if (whoGoes) {
+            int take;
+            do {
+                take = getNumber();
+            } while (model.canTakeOrNot(take));
+            //while (model.canTakeOrNot(getNumber())) {
+                //model.total();
+                System.out.println("lolik");
+                //model.
+            }
+        else
+            //game.botTake();
+        model.turn(whoGoes); // Check who take bot or you.
+        getNumber();
+        whoGoes = false;
+        return model.checkCandies();
     }
 }

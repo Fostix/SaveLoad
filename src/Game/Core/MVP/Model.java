@@ -1,5 +1,6 @@
 package Game.Core.MVP;
 
+import Game.Core.Game.Bot;
 import Game.Core.Game.Logic;
 import Game.Core.Game.Settings;
 
@@ -37,6 +38,22 @@ public class Model {
 
     public void setLogic() {
         game = new Logic(settings);
-        game.personTake();
+    }
+
+    public void turn(boolean whoGoes) {
+        if (whoGoes)
+            game.personTake(settings);
+        else
+            game.botTake();
+    }
+
+    public boolean canTakeOrNot(int number) {
+        settings.setTake(number);
+        return settings.checkCanTake(settings);
+    }
+
+    public void botActivate() {
+        Bot bot = new Bot();
+
     }
 }

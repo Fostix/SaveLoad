@@ -16,7 +16,11 @@ public class Menu {
                 switch (enter) {
                     case "start":
                         presenter.settings();
-                        presenter.playing();
+                        boolean playing = true; // for check game continue or not!!
+                        while (playing) {
+                            playing = presenter.playing();
+                            presenter.getNumber();
+                        }
                         break;
                     case "save":
                         System.out.println("will be here save");

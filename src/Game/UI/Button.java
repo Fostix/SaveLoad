@@ -10,7 +10,7 @@ public class Button {
             try {
                 System.out.print("Enter 'q' for on game: ");
                 enter = "q"; //scanner.next(); then delete
-                if (enter.equals("q")) {
+                if (enter.equals("q")) { // for faster check code!!
                     Menu menu = new Menu();
                     menu.menu();
                 } else {
