@@ -37,5 +37,6 @@ public class Model {
 
     public void setLogic() {
         game = new Logic(settings);
+        game.personTake();
     }
 }

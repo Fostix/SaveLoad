@@ -50,6 +50,7 @@ public class Presenter {
         model.setLogic();
         while (model.checkCandies()) {
             view.sayTakeCandies();
+            model.game();
         }
     }
 }
