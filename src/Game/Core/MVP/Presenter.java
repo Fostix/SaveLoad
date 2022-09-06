@@ -19,7 +19,7 @@ public class Presenter {
         view.setMaxCanTakeCandiesText();
         int maxCanTake = 6; // getNumber();
         view.whoGoesFirst();
-        String whoFirst = view.enterInConsole();
+        String whoFirst = "i"; // view.enterInConsole(); For faster check!
         boolean whoGoesFirst = whoGoesFirst(whoFirst.toLowerCase());
         model.setSettings(totalCandies, maxCanTake, whoGoesFirst);
     }
