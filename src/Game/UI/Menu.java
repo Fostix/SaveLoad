@@ -19,7 +19,6 @@ public class Menu {
                         boolean playing = true; // for check game continue or not!!
                         while (playing) {
                             playing = presenter.playing();
-                            presenter.getNumber();
                         }
                         break;
                     case "save":

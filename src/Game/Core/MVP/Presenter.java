@@ -48,23 +48,18 @@ public class Presenter {
     }
 
     public boolean playing() { // Need presenter.
-        model.setLogic(); // For send settings.
         view.sayTakeCandies(); // Only write.
         if (whoGoes) {
             int take;
             do {
                 take = getNumber();
             } while (model.canTakeOrNot(take));
-            //while (model.canTakeOrNot(getNumber())) {
-                //model.total();
-                System.out.println("lolik");
-                //model.
-            }
-        else
-            //game.botTake();
-        model.turn(whoGoes); // Check who take bot or you.
-        getNumber();
-        whoGoes = false;
+            whoGoes = false;
+        } else {
+            model.botActivate();
+            whoGoes = true;
+        }
+        //model.turn(whoGoes); // Check who take bot or you.
         return model.checkCandies();
     }
 }

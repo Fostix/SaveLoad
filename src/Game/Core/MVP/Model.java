@@ -1,12 +1,10 @@
 package Game.Core.MVP;
 
-import Game.Core.Game.Bot;
-import Game.Core.Game.Logic;
+import Game.Core.Bots.Bot;
 import Game.Core.Game.Settings;
 
 public class Model {
     Settings settings;
-    Logic game;
 
     public Settings getSettings() {
         return settings;
@@ -36,16 +34,12 @@ public class Model {
         return settings.checkCandies();
     }
 
-    public void setLogic() {
-        game = new Logic(settings);
-    }
-
-    public void turn(boolean whoGoes) {
-        if (whoGoes)
-            game.personTake(settings);
-        else
-            game.botTake();
-    }
+//    public boolean turn(boolean whoGoes) {
+//        if (whoGoes)
+//            return true;
+//        else
+//            return false;
+//    }
 
     public boolean canTakeOrNot(int number) {
         settings.setTake(number);
@@ -54,6 +48,6 @@ public class Model {
 
     public void botActivate() {
         Bot bot = new Bot();
-
+        bot.hardBot(settings);
     }
 }

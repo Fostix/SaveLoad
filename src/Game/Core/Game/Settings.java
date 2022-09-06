@@ -14,9 +14,6 @@ public class Settings {
         this.minCanTake = 1;
     }
 
-    public Settings() {
-    }
-
     public boolean checkCandies() {
         return totalCandies > 0;
     }
@@ -40,18 +37,13 @@ public class Settings {
             this.maxCanTake = this.totalCandies;
     }
 
+    public int getTotalCandies() {
+        return totalCandies;
+    }
 
     public void setTake(int take) {
         this.take = take;
     }
-    //public boolean this.
-
-    public void minusCandies(int take) {
-        //checkCanTake()
-    }
-
-    //public Settings
-
 
     public int getMaxCanTake() {
         return maxCanTake;
