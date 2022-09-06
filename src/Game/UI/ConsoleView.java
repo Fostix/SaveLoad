@@ -44,6 +44,13 @@ public class ConsoleView implements View {
 
     @Override
     public void printCandies(int candies) {
-        System.out.print(candies);
+        System.out.println(candies + " candies left!!");
     }
+
+    @Override
+    public void botTake(int take) {
+        System.out.printf("bot taked: %d candies\n", take);
+    }
+
+
 }

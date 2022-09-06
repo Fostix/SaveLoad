@@ -9,4 +9,5 @@ public interface View {
     void whoGoesFirst();
     void sayTakeCandies();
     void printCandies(int candies);
+    void botTake(int take);
 }

@@ -6,10 +6,6 @@ import Game.Core.Game.Settings;
 public class Model {
     Settings settings;
 
-    public Settings getSettings() {
-        return settings;
-    }
-
     public void setSettings(int totalCandies, int maxCanTake, boolean whoFirstGoes) { // 27 -> 6
         settings = new Settings(totalCandies, maxCanTake, whoFirstGoes);
     }
@@ -39,9 +35,11 @@ public class Model {
         return settings.checkCanTake(settings);
     }
 
-    public void botActivate() {
+    public int botActivate() {
         Bot bot = new Bot();
-        takeCandies(bot.hardBot(settings));
+        int take = bot.hardBot(settings);
+        takeCandies(take);
+        return take;
     }
 
     public void takeCandies(int take) {

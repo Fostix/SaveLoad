@@ -47,16 +47,17 @@ public class Presenter {
     }
 
     public boolean playing() {
-        view.sayTakeCandies(); // Only show text.
         if (whoGoes) {
             int take;
             do {
+                view.sayTakeCandies(); // Only show text.
                 take = getNumber();
             } while (model.canTakeOrNot(take));
             model.takeCandies(take);
             whoGoes = false;
         } else {
-            model.botActivate();
+            //model.botActivate();
+            view.botTake(model.botActivate());
             whoGoes = true;
         }
         view.printCandies(model.checkCandiesLeft());
