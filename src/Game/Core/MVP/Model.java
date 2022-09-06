@@ -1,9 +1,11 @@
 package Game.Core.MVP;
 
+import Game.Core.Game.Logic;
 import Game.Core.Game.Settings;
 
 public class Model {
     Settings settings;
+    Logic game;
 
     public Settings getSettings() {
         return settings;
@@ -27,5 +29,13 @@ public class Model {
 
     public int getNumber(String willBeNumber) {
         return Integer.parseInt(willBeNumber);
+    }
+
+    public boolean checkCandies() {
+        return settings.checkCandies();
+    }
+
+    public void setLogic() {
+        game = new Logic(settings);
     }
 }

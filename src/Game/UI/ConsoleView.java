@@ -36,4 +36,9 @@ public class ConsoleView implements View {
     public void whoGoesFirst() {
         System.out.print("Who first take candies you or bot\nWrite \"Me\" or \"I\" if you want to go first,\nif the bot does not understand what you see, then it will go first: ");
     }
+
+    @Override
+    public void sayTakeCandies() {
+        System.out.print("How many candies do you take: ");
+    }
 }

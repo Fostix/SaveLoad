@@ -16,6 +16,7 @@ public class Menu {
                 switch (enter) {
                     case "start":
                         presenter.settings();
+                        presenter.playing();
                         break;
                     case "save":
                         System.out.println("will be here save");

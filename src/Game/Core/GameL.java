@@ -25,6 +25,7 @@ public class GameL {
         else
             flag = true;
         int min = 1;
+        //-------------------------------------------------------------------------------------------------
         int take; // Need create function which check what user write if write save to save,
         int botTake; // if restore to need show save information.
         //#endregion

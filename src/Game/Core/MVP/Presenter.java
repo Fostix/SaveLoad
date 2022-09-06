@@ -45,4 +45,11 @@ public class Presenter {
         else
             return false;
     }
+
+    public void playing() { // need presenter
+        model.setLogic();
+        while (model.checkCandies()) {
+            view.sayTakeCandies();
+        }
+    }
 }

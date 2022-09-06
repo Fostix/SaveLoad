@@ -4,9 +4,8 @@ public interface View {
     void menu();
     void setTotalCandiesText();
     void setMaxCanTakeCandiesText();
-
     String enterInConsole();
-
     void itIsNumber();
     void whoGoesFirst();
+    void sayTakeCandies();
 }
