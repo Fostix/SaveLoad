@@ -14,7 +14,7 @@ public class Menu {
             try {
                 enter = "start"; // scanner.next();
                 switch (enter) {
-                    case "start":
+                    case "start": // for faster check code!!
                         presenter.settings();
                         boolean playing = true; // for check game continue or not!!
                         while (playing) {

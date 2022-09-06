@@ -56,11 +56,17 @@ public class Presenter {
             model.takeCandies(take);
             whoGoes = false;
         } else {
-            //model.botActivate();
             view.botTake(model.botActivate());
             whoGoes = true;
         }
         view.printCandies(model.checkCandiesLeft());
-        return model.checkCandies();
+        boolean play = model.checkCandies();
+        if (!play) {
+            if (whoGoes) {
+                view.botWin();
+            } else
+                view.youWin();
+        }
+        return play;
     }
 }

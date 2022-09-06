@@ -10,4 +10,6 @@ public interface View {
     void sayTakeCandies();
     void printCandies(int candies);
     void botTake(int take);
+    void youWin();
+    void botWin();
 }
