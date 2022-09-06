@@ -20,7 +20,7 @@ public class Presenter {
         view.setMaxCanTakeCandiesText();
         int maxCanTake = 6; // getNumber();
         view.whoGoesFirst();
-        String whoFirst = "d"; // view.enterInConsole(); For faster check!
+        String whoFirst = "ds"; // view.enterInConsole(); For faster check!
         this.whoGoes = whoGoesFirst(whoFirst.toLowerCase());
         model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
