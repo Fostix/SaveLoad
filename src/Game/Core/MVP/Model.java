@@ -62,6 +62,6 @@ public class Model {
     }
 
     public void loadGame() {
-        mrSave.loadGame();
+        this.settings = mrSave.loadGame(); // In the same memory!!
     }
 }

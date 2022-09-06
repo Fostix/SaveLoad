@@ -20,7 +20,7 @@ public class Presenter {
         view.setMaxCanTakeCandiesText();
         int maxCanTake = 6; // getNumber();
         view.whoGoesFirst();
-        String whoFirst = "ds"; // view.enterInConsole(); For faster check!
+        String whoFirst = "i"; // view.enterInConsole(); For faster check!
         this.whoGoes = whoGoesFirst(whoFirst.toLowerCase());
         model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
@@ -30,7 +30,11 @@ public class Presenter {
         String beNumber = "";
         int count = 0;
         do {
-            beNumber = view.enterInConsole();
+            beNumber = view.enterInConsole().toLowerCase();
+            if (beNumber.equals("save"))// Here need check save and load word.
+                saveGame();
+            if (beNumber.equals("load"))
+                loadGame();
             count++;
         } while (!model.isDigitString(beNumber));
         if (count > 1) {
@@ -51,6 +55,7 @@ public class Presenter {
             int take;
             do {
                 view.sayTakeCandies(); // Only show text.
+                // Here put function and some rewrite getNumber function.
                 take = getNumber();
             } while (model.canTakeOrNot(take));
             model.takeCandies(take);
@@ -68,6 +73,10 @@ public class Presenter {
                 view.youWin();
         }
         return play;
+    }
+
+    public void action() {
+        getNumber();
     }
 
     public void saveGame() {

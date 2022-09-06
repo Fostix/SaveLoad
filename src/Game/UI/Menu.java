@@ -18,7 +18,6 @@ public class Menu {
                         presenter.settings();
                         boolean playing = true; // for check game continue or not!!
                         while (playing) { // check save or load write or not
-
                             playing = presenter.playing();
                         }
                         break;
