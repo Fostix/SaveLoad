@@ -69,4 +69,12 @@ public class Presenter {
         }
         return play;
     }
+
+    public void saveGame() {
+        model.saveGame();
+    }
+
+    public void loadGame() {
+        model.loadGame();
+    }
 }

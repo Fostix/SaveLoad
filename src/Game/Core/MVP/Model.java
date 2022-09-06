@@ -2,9 +2,15 @@ package Game.Core.MVP;
 
 import Game.Core.Bots.Bot;
 import Game.Core.Game.Settings;
+import Game.Core.Save;
 
 public class Model {
-    Settings settings;
+    private Settings settings;
+    private Save<Settings> mrSave;
+
+    public Model() {
+        this.mrSave = new Save<>();
+    }
 
     public void setSettings(int totalCandies, int maxCanTake, boolean whoFirstGoes) { // 27 -> 6
         settings = new Settings(totalCandies, maxCanTake, whoFirstGoes);
@@ -49,5 +55,13 @@ public class Model {
 
     public int checkCandiesLeft() {
         return settings.getTotalCandies();
+    }
+
+    public void saveGame() {
+        mrSave.saveGame(settings);
+    }
+
+    public void loadGame() {
+        mrSave.loadGame();
     }
 }

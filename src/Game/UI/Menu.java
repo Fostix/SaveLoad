@@ -17,15 +17,18 @@ public class Menu {
                     case "start": // for faster check code!!
                         presenter.settings();
                         boolean playing = true; // for check game continue or not!!
-                        while (playing) {
+                        while (playing) { // check save or load write or not
+
                             playing = presenter.playing();
                         }
                         break;
                     case "save":
                         System.out.println("will be here save");
+                        presenter.saveGame();
                         break;
                     case "load":
                         System.out.println("will be here load");
+                        presenter.loadGame();
                 }
             } catch (Exception e) {
                 throw new RuntimeException();

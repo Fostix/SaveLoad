@@ -1,15 +1,18 @@
 package Game.Core;
 
-public class Save {
-    private int condition;
+import Game.Core.Game.Settings;
 
-    public void saveGame(int candies) { // Maybe need information about max min candies??!!
+import java.util.Map;
+
+public class Save<G extends Settings> {
+    private Map<Integer ,G> storage;// First Array maybe then in map or now uses map.
+    public void saveGame(G g) { // Maybe need information about max min candies??!!
         // Condition array for user can make more than one save?
-        this.condition = candies;
+        storage.put(0, g);
     }
 
-    public int loadGame() { // If array need information.
+    public G loadGame() { // If array need information.
         // If need for user cannot change information need return prototype.
-        return this.condition;
+        return storage.get(0);
     }
 }
