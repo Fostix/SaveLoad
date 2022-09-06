@@ -20,7 +20,7 @@ public class Presenter {
         view.setMaxCanTakeCandiesText();
         int maxCanTake = 6; // getNumber();
         view.whoGoesFirst();
-        String whoFirst = "i"; // view.enterInConsole(); For faster check!
+        String whoFirst = "d"; // view.enterInConsole(); For faster check!
         this.whoGoes = whoGoesFirst(whoFirst.toLowerCase());
         model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
@@ -33,7 +33,6 @@ public class Presenter {
             beNumber = view.enterInConsole();
             count++;
         } while (!model.isDigitString(beNumber));
-
         if (count > 1) {
             view.itIsNumber();
         }
@@ -47,19 +46,20 @@ public class Presenter {
             return false;
     }
 
-    public boolean playing() { // Need presenter.
-        view.sayTakeCandies(); // Only write.
+    public boolean playing() {
+        view.sayTakeCandies(); // Only show text.
         if (whoGoes) {
             int take;
             do {
                 take = getNumber();
             } while (model.canTakeOrNot(take));
+            model.takeCandies(take);
             whoGoes = false;
         } else {
             model.botActivate();
             whoGoes = true;
         }
-        //model.turn(whoGoes); // Check who take bot or you.
+        view.printCandies(model.checkCandiesLeft());
         return model.checkCandies();
     }
 }

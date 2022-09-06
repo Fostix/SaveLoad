@@ -41,4 +41,9 @@ public class ConsoleView implements View {
     public void sayTakeCandies() {
         System.out.print("How many candies do you take: ");
     }
+
+    @Override
+    public void printCandies(int candies) {
+        System.out.print(candies);
+    }
 }

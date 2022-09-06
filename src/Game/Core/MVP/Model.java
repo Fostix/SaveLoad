@@ -34,13 +34,6 @@ public class Model {
         return settings.checkCandies();
     }
 
-//    public boolean turn(boolean whoGoes) {
-//        if (whoGoes)
-//            return true;
-//        else
-//            return false;
-//    }
-
     public boolean canTakeOrNot(int number) {
         settings.setTake(number);
         return settings.checkCanTake(settings);
@@ -48,6 +41,15 @@ public class Model {
 
     public void botActivate() {
         Bot bot = new Bot();
-        bot.hardBot(settings);
+        takeCandies(bot.hardBot(settings));
+    }
+
+    public void takeCandies(int take) {
+        settings.setTake(take);
+        settings.takeCandies();
+    }
+
+    public int checkCandiesLeft() {
+        return settings.getTotalCandies();
     }
 }

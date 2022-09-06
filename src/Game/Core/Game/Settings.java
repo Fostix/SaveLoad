@@ -57,5 +57,7 @@ public class Settings {
         return minCanTake;
     }
 
-
+    public void takeCandies() {
+        this.totalCandies -= this.take;
+    }
 }

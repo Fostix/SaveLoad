@@ -8,4 +8,5 @@ public interface View {
     void itIsNumber();
     void whoGoesFirst();
     void sayTakeCandies();
+    void printCandies(int candies);
 }
