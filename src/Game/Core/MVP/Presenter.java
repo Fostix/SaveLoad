@@ -30,12 +30,10 @@ public class Presenter {
         String beNumber = "";
         int count = 0;
         do {
-            beNumber = view.enterInConsole().toLowerCase();
-            beNumber = String.valueOf(beNumber.contains("save"));
-            if (beNumber.contains("save"))// Here need check save and load word.
-                System.out.println(beNumber);
+            beNumber = view.enterInConsole();
+            if (beNumber.contains("save ")) // Here need check save and load word.
                 if (!checkSaveText(beNumber))
-
+                    view.badSave();
             if (beNumber.equals("load")) { // then which for what would be choice
                 String saves = model.showSaveInformations();
                 view.showSaves(saves);
@@ -82,9 +80,7 @@ public class Presenter {
     }
 
     private boolean checkSaveText(String text) {
-        //beNumber = String.valueOf(beNumber.contains("save"))
-        System.out.println(text);
-        text = String.valueOf(text.substring(5)); //here error
+        text = text.substring(5); //here error
         if (text.isEmpty()) {
             System.out.println("bad don't work");
             return false;

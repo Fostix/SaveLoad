@@ -24,7 +24,7 @@ public class ConsoleView implements View {
 
     @Override
     public String enterInConsole() {
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     @Override
@@ -65,5 +65,10 @@ public class ConsoleView implements View {
     @Override
     public void showSaves(String saves) {
         System.out.println(saves);
+    }
+
+    @Override
+    public void badSave() {
+        System.out.println("For save use \"save title\"");
     }
 }
