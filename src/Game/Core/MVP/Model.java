@@ -66,8 +66,8 @@ public class Model {
         mrSave.saveGame(text, settings.prototype());
     }
 
-    public void loadGame() {
-        this.settings = mrSave.loadGame(); // In the same memory!!
+    public void loadGame(String text) {
+        this.settings = mrSave.loadGame(text); // In the same memory!!
     }
 
     public String showSaveInformations() {

@@ -29,7 +29,7 @@ public class ConsoleView implements View {
 
     @Override
     public void itIsNumber() {
-        System.out.println("Bot say: Hey, are you still there?\n It's not fair : (");
+        System.out.println("Bot say: Hey, are you still there?\nIt's not fair : (");
     }
 
     @Override

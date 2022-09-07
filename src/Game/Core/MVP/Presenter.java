@@ -26,20 +26,20 @@ public class Presenter {
     }
 
     /** Для ввода и проверки является ли введенное значение числом*/
-    public int getNumber() {
+    public int inGame() {
         String beNumber = "";
         int count = 0;
         do {
             beNumber = view.enterInConsole();
             if (beNumber.contains("save ")) // Here need check save and load word.
-                if (!checkSaveText(beNumber))
+                if (!saving(beNumber))
                     view.badSave();
             if (beNumber.equals("load")) { // Then which for what would be choice.
                 String saves = model.showSaveInformations();
                 view.showSaves(saves);
             }
             if (beNumber.contains("load ")) {
-                loadGame(); // And send text in function for search key and load.
+                loadGame(beNumber.substring(5)); // And send text in function for search key and load.
             }
             count++;
         } while (!model.isDigitString(beNumber));
@@ -62,7 +62,7 @@ public class Presenter {
             do {
                 view.sayTakeCandies(); // Only show text.
                 // Here put function and some rewrite getNumber function.
-                take = getNumber();
+                take = inGame();
             } while (model.canTakeOrNot(take));
             model.takeCandies(take);
             whoGoes = false;
@@ -81,16 +81,15 @@ public class Presenter {
         return play;
     }
 
-    private boolean checkSaveText(String text) {
+    private boolean saving(String text) {
         text = text.substring(5); //here error
         if (text.isEmpty())
             return false;
         model.saveGame(text);
-        System.out.println("good moment");
         return true;
     }
 
-    public void loadGame() {
-        model.loadGame();
+    public void loadGame(String text) {
+        model.loadGame(text);
     }
 }

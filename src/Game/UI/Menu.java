@@ -26,7 +26,6 @@ public class Menu {
                         break;
                     case "load":
                         System.out.println("will be here load");
-                        presenter.loadGame();
                 }
             } catch (Exception e) {
                 throw new RuntimeException();
