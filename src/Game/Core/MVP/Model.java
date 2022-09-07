@@ -68,6 +68,7 @@ public class Model {
 
     public void loadGame(String text) {
         this.settings = mrSave.loadGame(text); // In the same memory!!
+        //settings.prototype(); // need load prototype
     }
 
     public String showSaveInformations() {

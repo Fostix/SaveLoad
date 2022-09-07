@@ -25,7 +25,6 @@ public class Presenter {
         model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
 
-    /** Для ввода и проверки является ли введенное значение числом*/
     public int inGame() {
         String beNumber = "";
         int count = 0;
