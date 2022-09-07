@@ -34,10 +34,12 @@ public class Presenter {
             if (beNumber.contains("save ")) // Here need check save and load word.
                 if (!checkSaveText(beNumber))
                     view.badSave();
-            if (beNumber.equals("load")) { // then which for what would be choice
+            if (beNumber.equals("load")) { // Then which for what would be choice.
                 String saves = model.showSaveInformations();
                 view.showSaves(saves);
-                loadGame();
+            }
+            if (beNumber.contains("load ")) {
+                loadGame(); // And send text in function for search key and load.
             }
             count++;
         } while (!model.isDigitString(beNumber));
@@ -81,11 +83,9 @@ public class Presenter {
 
     private boolean checkSaveText(String text) {
         text = text.substring(5); //here error
-        if (text.isEmpty()) {
-            System.out.println("bad don't work");
+        if (text.isEmpty())
             return false;
-        }
-            model.saveGame(text);
+        model.saveGame(text);
         System.out.println("good moment");
         return true;
     }

@@ -9,7 +9,7 @@ public class ConsoleView implements View {
 
     @Override
     public void menu() {
-        System.out.printf("write \"start\" for play new game\n");
+        System.out.print("write \"start\" for play new game\n");
     }
 
     @Override
@@ -49,7 +49,7 @@ public class ConsoleView implements View {
 
     @Override
     public void botTake(int take) {
-        System.out.printf("Bot taked: %d candies\n", take);
+        System.out.printf("Bot took: %d candies\n", take);
     }
 
     @Override
@@ -64,7 +64,8 @@ public class ConsoleView implements View {
 
     @Override
     public void showSaves(String saves) {
-        System.out.println(saves);
+        System.out.println(saves.replace("[", "").replace("]", "").replace(", ", "\n"));
+        System.out.println("load save_info");
     }
 
     @Override
