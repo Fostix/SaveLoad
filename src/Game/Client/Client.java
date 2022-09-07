@@ -1,13 +1,11 @@
 package Game.Client;
-
-import Game.Core.GameL;
-import Game.UI.Button;
+import Game.UI.Menu;
 
 public class Client {
     public static void main(String[] args) {
-        Button button = new Button();
-        button.buttonOnOff();
-        //GameL game = new GameL();
-        //game.game();
+//        Button button = new Button();
+//        button.buttonOnOff();
+        Menu menu = new Menu();
+        menu.menu();
     }
 }

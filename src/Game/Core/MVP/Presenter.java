@@ -16,11 +16,11 @@ public class Presenter {
 
     public void settings() {
         view.setTotalCandiesText();
-        int totalCandies = 27; // getNumber();
+        int totalCandies = getNumber();
         view.setMaxCanTakeCandiesText();
-        int maxCanTake = 6; // getNumber();
+        int maxCanTake = getNumber();
         view.whoGoesFirst();
-        String whoFirst = "i"; // view.enterInConsole(); For faster check!
+        String whoFirst = view.enterInConsole(); //For faster check!
         this.whoGoes = whoGoesFirst(whoFirst.toLowerCase());
         model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
@@ -30,18 +30,37 @@ public class Presenter {
         int count = 0;
         do {
             beNumber = view.enterInConsole();
-            if (beNumber.contains("save ")) // Here need check save and load word.
+            if (beNumber.contains("save ")) { // Here need check save and load word.
                 if (!saving(beNumber))
                     view.badSave();
+                view.saveGood();
+                view.sayTakeCandies();
+            }
             if (beNumber.equals("load")) { // Then which for what would be choice.
                 String saves = model.showSaveInformations();
                 view.showSaves(saves);
             }
             if (beNumber.contains("load ")) {
-                loadGame(beNumber.substring(5)); // And send text in function for search key and load.
+                int forRemoveTrashWord = 5;
+                loadGame(beNumber.substring(forRemoveTrashWord)); // And send text in function for search key and load.
+                view.sayTakeCandies();
             }
             count++;
         } while (!model.isDigitString(beNumber));
+        if (count > 1) {
+            view.itIsNumber();
+        }
+        return model.getNumber(beNumber);
+    }
+
+    public int getNumber() {
+        String beNumber = "";
+        int count = 0;
+        do {
+            beNumber = view.enterInConsole();
+            count++;
+        } while (!model.isDigitString(beNumber));
+
         if (count > 1) {
             view.itIsNumber();
         }

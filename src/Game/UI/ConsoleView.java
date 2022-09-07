@@ -72,4 +72,9 @@ public class ConsoleView implements View {
     public void badSave() {
         System.out.println("For save use \"save title\"");
     }
+
+    @Override
+    public void saveGood() {
+        System.out.println("Save good");
+    }
 }

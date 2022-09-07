@@ -14,4 +14,5 @@ public interface View {
     void botWin();
     void showSaves(String saves);
     void badSave();
+    void saveGood();
 }

@@ -17,9 +17,9 @@ public class Save<G extends Settings> {
         storage.put(text, g);
     }
 
-    public G loadGame(String text) { // If array need information.
+    public Settings loadGame(String text) { // If array need information.
         // If need for user cannot change information need return prototype.
-        return (G) storage.get(text).prototype();
+        return storage.get(text).prototype();
     }
 
     public String getAllKeys() {
