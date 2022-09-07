@@ -9,9 +9,9 @@ public class Menu {
         String enter;
         Scanner scanner = new Scanner(System.in);
         Presenter presenter = new Presenter(new ConsoleView());
-        presenter.showMenu();
         while (true) {
             try {
+                presenter.showMenu();
                 enter = scanner.next();
                 if (enter.equals("start")) {
                     presenter.settings();
