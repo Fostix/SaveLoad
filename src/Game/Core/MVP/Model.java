@@ -1,9 +1,8 @@
 package Game.Core.MVP;
 
 import Game.Core.Bots.Bot;
-import Game.Core.Game.Prototype;
 import Game.Core.Game.Settings;
-import Game.Core.Save;
+import Game.Core.Game.Save;
 
 public class Model {
     private Settings settings;
@@ -13,7 +12,7 @@ public class Model {
         this.mrSave = new Save<>();
     }
 
-    public void setSettings(int totalCandies, int maxCanTake, boolean whoFirstGoes) { // 27 -> 6
+    public void setSettings(int totalCandies, int maxCanTake, boolean whoFirstGoes) {
         settings = new Settings(totalCandies, maxCanTake, whoFirstGoes);
     }
 
@@ -27,10 +26,6 @@ public class Model {
             }
         }
         return true;
-    }
-
-    public void saveCheckWork(String text) {
-        //text.
     }
 
     public int getNumber(String willBeNumber) {
@@ -67,8 +62,7 @@ public class Model {
     }
 
     public void loadGame(String text) {
-        this.settings = mrSave.loadGame(text); // In the same memory!!
-        //settings.prototype(); // need load prototype
+        this.settings = mrSave.loadGame(text);
     }
 
     public String showSaveInformations() {

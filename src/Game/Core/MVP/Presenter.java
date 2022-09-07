@@ -20,7 +20,7 @@ public class Presenter {
         view.setMaxCanTakeCandiesText();
         int maxCanTake = getNumber();
         view.whoGoesFirst();
-        String whoFirst = view.enterInConsole(); //For faster check!
+        String whoFirst = view.enterInConsole();
         this.whoGoes = whoGoesFirst(whoFirst.toLowerCase());
         model.setSettings(totalCandies, maxCanTake, whoGoes);
     }
@@ -30,19 +30,19 @@ public class Presenter {
         int count = 0;
         do {
             beNumber = view.enterInConsole();
-            if (beNumber.contains("save ")) { // Here need check save and load word.
+            if (beNumber.contains("save ")) {
                 if (!saving(beNumber))
                     view.badSave();
                 view.saveGood();
                 view.sayTakeCandies();
             }
-            if (beNumber.equals("load")) { // Then which for what would be choice.
+            if (beNumber.equals("load")) {
                 String saves = model.showSaveInformations();
                 view.showSaves(saves);
             }
             if (beNumber.contains("load ")) {
                 int forRemoveTrashWord = 5;
-                loadGame(beNumber.substring(forRemoveTrashWord)); // And send text in function for search key and load.
+                loadGame(beNumber.substring(forRemoveTrashWord));
                 view.sayTakeCandies();
             }
             count++;
@@ -78,8 +78,7 @@ public class Presenter {
         if (whoGoes) {
             int take;
             do {
-                view.sayTakeCandies(); // Only show text.
-                // Here put function and some rewrite getNumber function.
+                view.sayTakeCandies();
                 take = inGame();
             } while (model.canTakeOrNot(take));
             model.takeCandies(take);
@@ -100,7 +99,7 @@ public class Presenter {
     }
 
     private boolean saving(String text) {
-        text = text.substring(5); //here error
+        text = text.substring(5);
         if (text.isEmpty())
             return false;
         model.saveGame(text);

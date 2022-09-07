@@ -18,15 +18,6 @@ public class Settings implements IMrCloneable<Settings>{
         return totalCandies > 0;
     }
 
-    /** For check what more max can take or candies */
-    public boolean checkWhatMore() {
-        if (totalCandies < maxCanTake) {
-            this.maxCanTake = this.totalCandies;
-            return true;
-        }
-        return false;
-    }
-
     public boolean checkCanTake(Settings takeCandies) {
         checkTotalAndMax();
         return this.take > this.maxCanTake || take < this.minCanTake;

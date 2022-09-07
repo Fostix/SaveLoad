@@ -12,11 +12,11 @@ public class Menu {
         presenter.showMenu();
         while (true) {
             try {
-                enter = "start";//scanner.next();
+                enter = scanner.next();
                 if (enter.equals("start")) {
                     presenter.settings();
-                    boolean playing = true; // for check game continue or not!!
-                    while (playing)  // check save or load write or not
+                    boolean playing = true;
+                    while (playing)
                         playing = presenter.playing();
                 }
             } catch (Exception e) {
