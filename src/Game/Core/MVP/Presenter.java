@@ -31,10 +31,16 @@ public class Presenter {
         int count = 0;
         do {
             beNumber = view.enterInConsole().toLowerCase();
-            if (beNumber.equals("save"))// Here need check save and load word.
-                saveGame();
-            if (beNumber.equals("load"))
+            beNumber = String.valueOf(beNumber.contains("save"));
+            if (beNumber.contains("save"))// Here need check save and load word.
+                System.out.println(beNumber);
+                if (!checkSaveText(beNumber))
+
+            if (beNumber.equals("load")) { // then which for what would be choice
+                String saves = model.showSaveInformations();
+                view.showSaves(saves);
                 loadGame();
+            }
             count++;
         } while (!model.isDigitString(beNumber));
         if (count > 1) {
@@ -75,8 +81,17 @@ public class Presenter {
         return play;
     }
 
-    public void saveGame() {
-        model.saveGame();
+    private boolean checkSaveText(String text) {
+        //beNumber = String.valueOf(beNumber.contains("save"))
+        System.out.println(text);
+        text = String.valueOf(text.substring(5)); //here error
+        if (text.isEmpty()) {
+            System.out.println("bad don't work");
+            return false;
+        }
+            model.saveGame(text);
+        System.out.println("good moment");
+        return true;
     }
 
     public void loadGame() {

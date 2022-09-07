@@ -23,7 +23,6 @@ public class Menu {
                         break;
                     case "save":
                         System.out.println("will be here save");
-                        presenter.saveGame();
                         break;
                     case "load":
                         System.out.println("will be here load");

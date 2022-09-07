@@ -29,6 +29,10 @@ public class Model {
         return true;
     }
 
+    public void saveCheckWork(String text) {
+        //text.
+    }
+
     public int getNumber(String willBeNumber) {
         return Integer.parseInt(willBeNumber);
     }
@@ -58,11 +62,15 @@ public class Model {
         return settings.getTotalCandies();
     }
 
-    public void saveGame() {
-        mrSave.saveGame(settings.prototype());
+    public void saveGame(String text) {
+        mrSave.saveGame(text, settings.prototype());
     }
 
     public void loadGame() {
         this.settings = mrSave.loadGame(); // In the same memory!!
+    }
+
+    public String showSaveInformations() {
+        return mrSave.getAllKeys();
     }
 }

@@ -12,4 +12,5 @@ public interface View {
     void botTake(int take);
     void youWin();
     void botWin();
+    void showSaves(String saves);
 }
