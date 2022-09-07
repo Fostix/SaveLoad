@@ -1,6 +1,6 @@
 package Game.Core.Game;
 
-public class Settings {
+public class Settings implements IMrCloneable<Settings>{
     private int totalCandies;
     private int maxCanTake;
     private boolean whoFirstGoes;
@@ -59,5 +59,10 @@ public class Settings {
 
     public void takeCandies() {
         this.totalCandies -= this.take;
+    }
+
+    @Override
+    public Settings prototype() {
+        return new Settings(getTotalCandies(), getMaxCanTake(), isWhoFirstGoes());
     }
 }

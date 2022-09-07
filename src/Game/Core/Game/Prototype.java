@@ -1,8 +1,7 @@
 package Game.Core.Game;
 
-//public class Prototype {
-//    Settings clone(Settings s) {
-//        Settings setting = new Settings();
-//        //setting.set
-//    }
-//}
+public class Prototype<S extends Settings> {
+    Settings clone(S s) {
+        return new Settings(s.getTotalCandies(), s.getMaxCanTake(), s.isWhoFirstGoes());
+    }
+}

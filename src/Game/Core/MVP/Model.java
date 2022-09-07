@@ -1,6 +1,7 @@
 package Game.Core.MVP;
 
 import Game.Core.Bots.Bot;
+import Game.Core.Game.Prototype;
 import Game.Core.Game.Settings;
 import Game.Core.Save;
 
@@ -58,7 +59,7 @@ public class Model {
     }
 
     public void saveGame() {
-        mrSave.saveGame(settings);
+        mrSave.saveGame(settings.prototype());
     }
 
     public void loadGame() {

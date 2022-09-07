@@ -75,10 +75,6 @@ public class Presenter {
         return play;
     }
 
-    public void action() {
-        getNumber();
-    }
-
     public void saveGame() {
         model.saveGame();
     }
