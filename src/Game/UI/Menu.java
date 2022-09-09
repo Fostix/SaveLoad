@@ -5,6 +5,7 @@ import Game.Core.MVP.Presenter;
 import java.util.Scanner;
 
 public class Menu {
+    /** Launches the menu*/
     public void menu() {
         String enter;
         Scanner scanner = new Scanner(System.in);

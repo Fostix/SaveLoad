@@ -8,6 +8,7 @@ public class Model {
     private Settings settings;
     private Save<Settings> mrSave;
 
+    /** Launches the necessary models for the application to work*/
     public Model() {
         this.mrSave = new Save<>();
     }

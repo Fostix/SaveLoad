@@ -4,7 +4,7 @@ public class Presenter {
     private Model model;
     private View view;
     private boolean whoGoes;
-
+    /** Pulls up all the functionality*/
     public Presenter(View view) {
         this.model = new Model();
         this.view = view;
